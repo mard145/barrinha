@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        @keyframes animBar {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        const body = document.body
+
+        const lettersAndnumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F']
+        const letterNumbers = []
+        while (lettersAndnumbers.length) {
+            const index = Math.floor(Math.random() * lettersAndnumbers.length - 1);
+            const [lettersAndnumber] = lettersAndnumbers.splice(index, 1);
+            letterNumbers.push(lettersAndnumber);
+        }
+        var c = letterNumbers.slice(10)
+        var a = c.toString()
+        var b = a.replace(/,/g, '')
+
+        const hashTag = '#'
+        const textNodeBar = document.createTextNode('Javascript')
+        let bar = document.createElement('div')
+        bar.setAttribute('style',
+            `width:50%; height:30px; background-color:${hashTag}${b}; animation-name:animBar; animation-duration:3s`
+            )
+        bar.classList.add('animeBar')
+        body.appendChild(bar)
+        const habylities = ['Javascript', 'Node.js', 'MongoDB', 'Mysql', 'HTML5', 'CSS3', 'Firebase', 'Socket.io',
+            'Bootstrap', 'Three.js', 'React', 'React Native', 'Jquery'
+        ]
+        const arrayEmptyHabylities = []
+        while (habylities.length) {
+            const index = Math.floor(Math.random() * habylities.length - 1);
+            const [habylitie] = habylities.splice(index, 1);
+            arrayEmptyHabylities.push(habylitie);
+        }
+        var hab = arrayEmptyHabylities
+
+        for (var i = 0; i < hab.length; i++) {
+            const divHab = document.createElement('div')
+            let barr = document.querySelector('.animeBar')
+            divHab.append(barr)
+            divHab.classList.add('divHab')
+            const textHab = document.createTextNode(`${hab[i]}`)
+            divHab.appendChild(textHab)
+            divHab.setAttribute('style', 'width:50%;height:50% ;')
+            body.appendChild(divHab)
+        }
+
+    </script>
+</body>
+
+</html>
